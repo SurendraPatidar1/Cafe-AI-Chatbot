@@ -1,0 +1,141 @@
+
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi", "Hello", "Hey", "Good morning",
+        "Namaste", "I want to order food",
+        "Hello cafe", "I am hungry"
+      ],
+      "responses": [
+        "Welcome to Cafe AI! How can I help you?",
+        "Hello! Would you like to see our menu?"
+      ]
+    },
+    {
+      "tag": "show_menu",
+      "patterns": [
+        "Show me the menu",
+        "What do you have?",
+        "What can I order?",
+        "Show food items",
+        "I want to see the menu",
+        "What drinks are available?",
+        "Can I see your menu?",
+        "Menu please"
+      ],
+      "responses": [
+        "Here is our cafe menu!"
+      ]
+    },
+    {
+      "tag": "add_to_cart",
+      "patterns": [
+        "I want a cappuccino",
+        "Order two cappuccinos",
+        "Add coffee to my cart",
+        "I would like a burger",
+        "Give me two sandwiches",
+        "I want to buy some food",
+        "Add a cold coffee",
+        "I want three burgers",
+        "Can I get a hot chocolate?",
+        "Please add a sandwich to my order",
+        "I want one espresso",
+        "Give me one masala tea",
+        "Order a brownie",
+        "I want fries",
+        "Add two cold coffees to my cart"
+      ],
+      "responses": [
+        "Sure! I will add that to your order."
+      ]
+    },
+    {
+      "tag": "view_cart",
+      "patterns": [
+        "Show my cart",
+        "What have I ordered?",
+        "Show my order",
+        "How much is my bill?",
+        "What is my total?",
+        "Check my cart",
+        "Calculate my bill",
+        "How much do I owe?"
+      ],
+      "responses": [
+        "Here is your current order."
+      ]
+    },
+    {
+      "tag": "remove_from_cart",
+      "patterns": [
+        "Remove cappuccino from my cart",
+        "Remove the burger",
+        "Delete the sandwich from my order",
+        "I don't want coffee anymore",
+        "Remove one item",
+        "Cancel the brownie",
+        "Take the fries out of my cart",
+        "I want to remove my coffee"
+      ],
+      "responses": [
+        "Let me update your cart."
+      ]
+    },
+    {
+      "tag": "checkout",
+      "patterns": [
+        "Checkout",
+        "Place my order",
+        "Confirm my order",
+        "I want to pay",
+        "Finish my order",
+        "Proceed to checkout",
+        "Order confirmed",
+        "I am ready to order"
+      ],
+      "responses": [
+        "Let's confirm your order."
+      ]
+    },
+    {
+      "tag": "cancel_order",
+      "patterns": [
+        "Cancel my order",
+        "Clear my cart",
+        "I don't want anything",
+        "Cancel everything",
+        "Remove all items",
+        "I want to cancel",
+        "Start my order again"
+      ],
+      "responses": [
+        "Let's cancel your current cart."
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Bye", "Goodbye", "See you later",
+        "I am leaving", "That's all"
+      ],
+      "responses": [
+        "Thanks for visiting Cafe AI!",
+        "Goodbye! Visit us again."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "Thank you", "Thanks", "Great service",
+        "That was helpful", "Thanks for the coffee"
+      ],
+      "responses": [
+        "You're welcome!",
+        "Happy to help!"
+      ]
+    }
+  ]
+}
