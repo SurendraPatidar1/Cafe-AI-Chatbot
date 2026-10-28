@@ -1,314 +1,138 @@
-# ☕ Cafe AI Chatbot
+<div align="center">
 
-### An Intelligent Cafe Ordering Assistant Built with Python, PyTorch & NLP
-
-<p align="center">
-  <strong>Order smarter. Chat naturally. Enjoy your coffee.</strong>
+☕ Cafe AI — Intelligent Cafe Ordering Chatbot
+A Python + PyTorch chatbot for menu discovery, order handling, and checkout.
+<p>
+  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/PyTorch-Neural%20Network-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch"/>
+  <img src="https://img.shields.io/badge/NLP-Intent%20Classification-7B61FF?style=for-the-badge" alt="NLP"/>
+  <img src="https://img.shields.io/badge/Status-Learning%20Project-2EA44F?style=for-the-badge" alt="Project status"/>
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.10-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.10">
-  <img src="https://img.shields.io/badge/PyTorch-Deep%20Learning-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch">
-  <img src="https://img.shields.io/badge/NLP-Intent%20Classification-8A2BE2?style=for-the-badge" alt="NLP">
-  <img src="https://img.shields.io/badge/Status-Active%20Development-2EA44F?style=for-the-badge" alt="Active Development">
-</p>
+Order naturally. Get your bill. Enjoy a simpler cafe experience.
+</div>
 
----
+📌 About the Project
+Cafe AI is a command-line cafe assistant built with Python and PyTorch. It uses a small neural network to classify user intents and responds using patterns and responses defined in intents.json. The cafe ordering layer supports menu lookup, quantity extraction, cart operations, and a simple checkout flow.
 
-## 📌 Overview
+The project combines introductory NLP concepts with practical order-management logic. It is designed as a learning project that can be extended into a web application or a more complete ordering system.
+✨ Features
+Feature	Description
+🧠 Intent classification	Predicts an intent using a trained PyTorch neural network
+💬 Pattern-based conversation	Uses the intents and responses configured in intents.json
+📋 Menu display	Shows the available cafe items and their prices
+🛒 Add to cart	Adds one or multiple recognized menu items
+🔢 Quantity extraction	Understands supported numeric and number-word quantities
+🧾 Cart and bill	Displays quantities, item subtotals, and the cart total
+➖ Remove items	Removes a requested item or quantity from the cart
+✅ Checkout	Confirms an order and prints an order ID and receipt
+🛑 Input validation	Checks recognized items and limits quantities
+⚙️ CPU/GPU support	Uses CUDA when available; otherwise runs on CPU
 
-**Cafe AI Chatbot** is a Python-based conversational ordering assistant designed to simplify the cafe ordering experience through natural language interaction.
 
-Powered by a PyTorch neural network and Natural Language Processing (NLP), the chatbot identifies customer intents, recognizes menu items, manages a shopping cart, calculates order totals, and guides customers through a simulated checkout process.
+Note: Features depend on the current implementation and configured menu/intents. This is a command-line prototype, not yet a production-ready cafe platform.
 
-The project combines machine learning-based intent classification with rule-based order processing to create a practical, beginner-friendly AI application.
-
-## ✨ Key Features
-
-| Feature | Description |
-|---|---|
-| 🧠 Intent Classification | Predicts customer intent using a trained PyTorch neural network. |
-| ☕ Interactive Menu | Displays cafe products with item names and prices. |
-| 🛒 Smart Cart Management | Adds menu items and manages requested quantities. |
-| 🔢 Quantity Extraction | Supports numeric quantities and common number words. |
-| 🧾 Bill Calculation | Calculates item subtotals and the total order amount. |
-| 🗑️ Item Removal | Removes items or reduces their quantities in the cart. |
-| ✅ Checkout Flow | Requests confirmation before finalizing an order. |
-| 🆔 Order Identification | Generates a unique order reference for each completed checkout. |
-| 💬 Conversational Interface | Accepts supported natural language requests and direct commands. |
-
-## 🛠️ Technology Stack
-
-- **Language:** Python 3.10
-- **Machine Learning:** PyTorch
-- **Natural Language Processing:** NLTK
-- **Text Processing:** Tokenization and Bag-of-Words feature extraction
-- **Model Architecture:** Feed-forward neural network for intent classification
-- **Data Format:** JSON-based intent definitions
-- **Version Control:** Git and GitHub
-
-## 🏗️ Project Architecture
-
-```text
-Customer Message
-       |
-       v
-Text Preprocessing
-(NLTK Tokenization)
-       |
-       v
-Intent Classification
-(PyTorch Neural Network)
-       |
-       v
-Conversation Controller
-       |
-       +---------------------+
-       |                     |
-       v                     v
-Intent-Based Replies    Cafe Order Logic
-                             |
-                 +-----------+-----------+
-                 |           |           |
-                 v           v           v
-                Menu        Cart       Checkout
-                             |
-                             v
-                     Bill Calculation
-                             |
-                             v
-                       Order Summary
-```
-
-**Hybrid approach:** Explicit menu and cart commands are handled directly by application logic, while other supported conversational requests can use the trained intent classifier. This improves reliability for structured ordering operations.
-
-## 📂 Project Structure
-
-```text
-Cafe-AI-Chatbot/
-│
-├── chat.py             # Chatbot interface and order processing
-├── train.py            # Neural network training script
-├── model.py            # Neural network architecture
-├── nltk_utils.py       # Tokenization and Bag-of-Words utilities
-├── intents.json        # Training patterns and response definitions
-├── data.pth            # Trained model checkpoint
-├── .gitignore          # Files excluded from version control
-└── README.md           # Project documentation
-```
-
-*The structure above reflects the core files used by this project. Update it if you add tests, configuration files, or additional modules.*
-
-## ⚙️ Installation and Setup
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/YOUR-USERNAME/Cafe-AI-Chatbot.git
-cd Cafe-AI-Chatbot
-```
-
-Replace `YOUR-USERNAME` with your GitHub username.
-
-### 2. Create a virtual environment
-
-**Windows PowerShell**
-
-```powershell
-py -3.10 -m venv .venv
+🧰 Tech Stack
+- Python — application logic
+- PyTorch — neural network and training loop
+- NLTK utilities — tokenization and stemming helpers (from nltk_utils.py)
+- NumPy — training data preparation
+- JSON — intent definitions and conversation patterns
+🗂️ Project Structure
+Cafe-AI/
+├── intents.json       # Intent tags, patterns, and responses
+├── train.py           # Prepares data and trains the neural network
+├── model.py           # NeuralNet model definition
+├── nltk_utils.py      # Tokenization, stemming, and bag-of-words helpers
+├── data.pth           # Saved model and vocabulary (generated by training)
+├── chat.py            # Chat/order application entry point (use your actual filename)
+└── README.md
+Important: If your chatbot application file has a different name, replace chat.py in this example with that filename. Keep the training script (train.py) separate from the chatbot runtime script where possible: training creates/refreshes data.pth, while the chatbot loads it.
+⚙️ Setup
+1. Clone the repository
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+cd YOUR_REPOSITORY
+Replace the repository URL with your actual GitHub URL.
+2. Create and activate a virtual environment (recommended)
+Windows PowerShell
+python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-```
-
-If PowerShell blocks activation, you can run the Python executable inside `.venv` directly instead of changing your system execution policy.
-
-### 3. Install dependencies
-
-```powershell
+If PowerShell blocks activation, you can run the Python executable directly from .venv\Scripts\python.exe.
+3. Install dependencies
 python -m pip install torch nltk numpy
-```
-
-Use a PyTorch installation compatible with your system if the default installation does not work.
-
-### 4. Download NLTK resources
-
-```powershell
-python -c "import nltk; nltk.download('punkt'); nltk.download('punkt_tab')"
-```
-
-### 5. Train the model
-
-If you modify `intents.json`, retrain the model so the vocabulary and intent labels match the updated data:
-
-```powershell
+The exact PyTorch installation command can depend on your CPU/GPU setup. See the official PyTorch installation selector if the default installation does not fit your machine.
+4. Train the model
 python train.py
-```
-
-This generates or updates `data.pth`, which the chatbot loads during execution.
-
-### 6. Start the chatbot
-
-```powershell
+Training reads intents.json and saves the trained model data to data.pth.
+5. Run the chatbot
+Run your existing chatbot script, not the training script. For example, if the runtime file is named chat.py:
 python chat.py
-```
-
-**Note:** The repository must include a compatible `data.pth` checkpoint, or users must train the model locally before running the chatbot.
-
-## ☕ Available Cafe Menu
-
-The application currently uses a sample menu with configurable prices.
-
-| Menu Item | Price (INR) |
-|---|---:|
-| Espresso | ₹80 |
-| Cappuccino | ₹120 |
-| Cold Coffee | ₹140 |
-| Masala Tea | ₹40 |
-| Hot Chocolate | ₹130 |
-| Veg Sandwich | ₹100 |
-| Grilled Sandwich | ₹150 |
-| Veg Burger | ₹120 |
-| French Fries | ₹90 |
-| Brownie | ₹100 |
-
-Prices are demo values and can be changed in the menu configuration in `chat.py`.
-
-## 💬 Example Conversation
-
-```text
+If your application currently lives in a differently named Python file, run that file instead.
+🧪 Example Conversation
 Bot: Hello! Welcome to Cafe AI.
-
-Bot: Here is our menu.
+Bot: Type 'quit' to exit.
 
 You: menu
+Bot: [Displays the cafe menu]
 
-Bot: [Displays cafe menu and prices]
+You: 2 cappuccinos and one brownie
+Bot: [Adds the recognized items and displays the cart]
 
-You: Veg Sandwich
+You: cart
+Bot: [Displays items and the total]
 
-Bot: Added 1 x Veg Sandwich.
-
-YOUR CART
-Veg Sandwich x 1 = Rs. 100
-TOTAL: Rs. 100
-
-You: 2 cappuccino
-
-Bot: Added 2 x Cappuccino.
-
-YOUR CART
-Veg Sandwich x 1 = Rs. 100
-Cappuccino x 2 = Rs. 240
-TOTAL: Rs. 340
+You: remove 1 brownie
+Bot: [Updates the cart]
 
 You: checkout
+Bot: [Asks for confirmation and completes the demo checkout]
+Exact output and supported wording depend on the application code and intents.json.
+🧠 How It Works
+1. Intent data: intents.json stores intent tags, training patterns, and responses.
+2. Preprocessing: nltk_utils.py tokenizes text, stems words, and creates bag-of-words vectors.
+3. Training: train.py builds the vocabulary and tags, trains NeuralNet using CrossEntropyLoss and Adam, then saves the model metadata and weights to data.pth.
+4. Inference: The chatbot loads data.pth, converts the user's message into a feature vector, and predicts an intent.
+5. Ordering logic: Explicit menu and cart handling recognizes supported item names and quantities, then updates the in-memory cart.
+6. Checkout: The prototype confirms the order and displays a receipt.
+🔧 Customization
+Add or update intents
+Edit intents.json to add suitable patterns and responses. After changing training patterns or intent tags, retrain the model:
+python train.py
+Update menu items and prices
+Edit the MENU dictionary in the chatbot application file. Ensure that item aliases match the names customers may type.
+Tune training
+The current training script exposes values such as batch_size, hidden_size, learning_rate, and num_epochs. Change them only when you intend to experiment with model training, and compare the results rather than assuming more epochs always improve performance.
+⚠️ Current Limitations
+- The interface is terminal-based; there is no web UI yet.
+- The neural network is a small intent classifier, not a generative LLM.
+- The cart is held in memory and is not a persistent customer cart.
+- Checkout is a demonstration flow; no payment is processed.
+- There is no database, authentication, admin dashboard, live inventory, or multi-cafe support.
+- Intent accuracy depends on the coverage and quality of the patterns in intents.json.
+🛣️ Roadmap
+- [ ] Add more examples and improve intent coverage
+- [ ] Add automated tests for item matching, quantities, cart totals, and checkout
+- [ ] Build a responsive web chat interface
+- [ ] Expose chatbot functions through a FastAPI backend
+- [ ] Store products and orders in a database
+- [ ] Add order status tracking and an admin dashboard
+- [ ] Explore an optional LLM layer for more flexible conversations
+🔐 Repository Hygiene
+Do not commit virtual environments, API keys, .env files, cache folders, or unnecessary generated files.
 
-Bot: Confirm your order? (yes/no): yes
-Bot: Enter your name: Customer
+Suggested .gitignore:
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.env
+.DS_Store
+data.pth is a generated model artifact. Decide whether to track it based on repository size and whether you want users to train the model themselves. If it is large, use an appropriate artifact-storage approach rather than committing repeated versions.
+👨‍💻 Author
+Surendra Patidar
+- GitHub: @SurendraPatidar1
+- YouTube: Learn With Surendra
+<div align="center">
 
-******************************************
-               ORDER PLACED!
-Order ID : CAFE-XXXXXXXX
-Customer : Customer
-Veg Sandwich x 1 = Rs. 100
-Cappuccino x 2 = Rs. 240
-TOTAL AMOUNT: Rs. 340
-
-Thank you for visiting Cafe AI!
-******************************************
-```
-
-*Illustrative example: actual responses and formatting depend on the current implementation.*
-
-## 🧠 How Intent Classification Works
-
-The chatbot uses a supervised learning workflow:
-
-1. **Training data:** `intents.json` contains example phrases grouped by intent tags.
-2. **Tokenization:** NLTK splits input text into tokens.
-3. **Feature extraction:** Bag-of-Words converts tokens into a numerical vector based on the training vocabulary.
-4. **Prediction:** The trained PyTorch neural network produces scores for available intent classes.
-5. **Response handling:** The application uses the predicted intent to select a response or trigger a supported action.
-
-### Example intents
-
-| Intent | Example user message |
-|---|---|
-| `greeting` | Hello! |
-| `show_menu` | Show me the menu |
-| `add_to_cart` | I want a veg burger |
-| `view_cart` | Show my cart |
-| `remove_from_cart` | Remove the brownie |
-| `checkout` | Place my order |
-| `cancel_order` | Clear my cart |
-| `goodbye` | Bye! |
-
-Menu recognition and cart operations are handled by explicit application logic where implemented; not every order operation depends on the neural network prediction.
-
-## 🔐 Current Scope and Limitations
-
-This is a local, console-based prototype intended for learning and demonstration.
-
-- Orders and cart contents are stored in memory and reset when the application exits.
-- Checkout generates a local order reference; it does not submit an order to a real cafe.
-- No database, authentication, payment gateway, or live inventory integration is currently included.
-- Intent classification accuracy depends on the quality and coverage of training examples.
-- Menu items and prices are configured locally.
-
-**No real payment is processed, and no order is transmitted to a business.**
-
-## 🚀 Future Enhancements
-
-- [ ] Persistent cart and order history using SQLite or MySQL
-- [ ] FastAPI backend for order management
-- [ ] REST APIs for menu, cart, and checkout
-- [ ] Web-based interface using React or Angular
-- [ ] Improved entity extraction for menu items and quantities
-- [ ] Automated unit and integration tests
-- [ ] Database-backed order IDs and status tracking
-- [ ] Optional multilingual conversational support
-- [ ] Integration with a real ordering platform after adding appropriate validation and security
-
-## 🧪 Testing Ideas
-
-Important scenarios to validate before extending the project:
-
-- Add one item and multiple quantities.
-- Add multiple different items in a single message.
-- Remove an item that exists in the cart.
-- Attempt to remove an item that is not in the cart.
-- Checkout with an empty cart.
-- Cancel checkout and verify that the cart remains unchanged.
-- Enter an invalid menu number.
-- Verify order totals for different quantities.
-
-## 🎯 Learning Outcomes
-
-This project demonstrates practical experience with:
-
-- Python application development
-- Fundamental NLP preprocessing techniques
-- Supervised intent classification
-- PyTorch model training and inference
-- JSON-based configuration
-- Rule-based entity and quantity extraction
-- Cart management and checkout workflows
-- Git version control and incremental project development
-
-## 👨‍💻 Author
-
-**Surendra Patidar**
-
-Aspiring Java Full Stack Developer | Backend Developer & AI Engineer
-
-- GitHub: [SurendraPatidar1](https://github.com/SurendraPatidar1)
-- LinkedIn: [Surendra Patidar](https://www.linkedin.com/in/surendra-patidar-0b2555228/)
-
-## 📄 License
-
-A license has not yet been specified. Add a `LICENSE` file if you want to distribute the project under a particular open-source license. Also verify the original repository's licensing terms before redistributing or relicensing any inherited code.
-
----
-
-<p align="center">
-  <strong>Built to explore the intersection of conversational AI, NLP, and practical software engineering.</strong>
-</p>
+Built with Python, PyTorch, and a focus on learning by building real projects.
+</div>
